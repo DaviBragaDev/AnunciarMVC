@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aunicio do Produto</title>
+</head>
+<body>
+    <h1>Anunciar Produto</h1>
+    <form method="post" th:action="@{/doSalvar}" th:object="${Anunciar}">
+        produto: <input type="text" th:field="*{produto}"> <br />
+        descricao: <input type="text" th:field="*{descricao}"> <br />
+        valor: <input type="number" th:field="*{valor}"> <br />
+        <button type="submit">Anunciar</button>
+    </form>
+</body>
+</html>
