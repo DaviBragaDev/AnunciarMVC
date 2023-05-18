@@ -34,4 +34,18 @@ public class AnuncioController {
         service.save(a);
         return "redirect:/index";
     }
+    @getMapping("/editarPage/{id}"):
+    public String getEditarPage(@pathVariables(name = "id") String id, Model model){
+        Optional<Anunciar> p = service.findById(id);
+        if (p.isPresent()){
+            model.addAttribute("Anunciar", p.get());
+        }else{
+            return "redirect:/index";
+        }
+
+        return "editarPage";
+    }
+
 }
+
+

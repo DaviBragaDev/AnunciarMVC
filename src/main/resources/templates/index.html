@@ -8,10 +8,18 @@
 </head>
 <body>
     <h1>Site de Anuncios</h1>
+    <td><a th:href="@{cadastroProduto}">Cadastrar</a></td>
     <table>
         <tr th:each="Anunciar: ${postagemList}">
-            <td th:Text="${Anuncio.produto}"></td>
-            <td th:Text="${Anuncio.valor}"></td>
+            <td th:Text="${Anunciar.id}"></td>
+            <td th:Text="${Anunciar.produto}"></td>
+            <td th:Text="${Anunciar.descricao}"></td>
+            <td th:Text="${Anunciar.valor}"></td>
+            <td><a th:href="@{'editarPage/'+${Anunciar.id}">Editar</a></td>
+            <td><a th:href="@{'deletarPage/'+${Anunciar.id}">Deletar</a></td>
+
+
+
         </tr>
     </table>
 </body>

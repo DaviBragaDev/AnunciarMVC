@@ -17,7 +17,5 @@ public class Anunciar {
     String produto;
     String descricao;
     String valor;
-    public void produtoAnuncio(){
-        this.produto.toUpperCase();
-    }
+
 }
