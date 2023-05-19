@@ -1,14 +1,17 @@
 package com.post.anunciar.controller;
 
-import org.hibernate.mapping.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.ui.Model;
 
 import com.post.anunciar.model.Anunciar;
 import com.post.anunciar.service.AnuncioService;
+
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class AnuncioController {
@@ -34,11 +37,11 @@ public class AnuncioController {
         service.save(a);
         return "redirect:/index";
     }
-    @getMapping("/editarPage/{id}"):
-    public String getEditarPage(@pathVariables(name = "id") String id, Model model){
-        Optional<Anunciar> p = service.findById(id);
-        if (p.isPresent()){
-            model.addAttribute("Anunciar", p.get());
+    @GetMapping("/editarPage/{id}")
+    public String getEditarPage(@PathVariable(name = "id") Integer id, Model model){
+        Optional<Anunciar> A = service.findById(id);
+        if (A.isPresent()){
+            model.addAttribute("Anunciar", A.get());
         }else{
             return "redirect:/index";
         }

@@ -1,6 +1,7 @@
 package com.post.anunciar.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,7 @@ public class  AnuncioService {
     public void save (Anunciar a){
         repository.save(a);
     }
-    public Optional<Anunciar> findById(String id){
+    public Optional<Anunciar> findById(Integer id){
         return repository.findById(id);
     }
 
