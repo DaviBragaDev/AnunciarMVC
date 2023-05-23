@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Anunciar Produto</h1>
-    <form method="post" th:action="@{/doSalvar}" th:object="${Anunciar}">
+    <form method="post" th:action="@{/doSalvar}" th:object="${anunciar}">
         produto: <input type="text" th:field="*{produto}"> <br />
         descricao: <input type="text" th:field="*{descricao}"> <br />
         valor: <input type="number" th:field="*{valor}"> <br />

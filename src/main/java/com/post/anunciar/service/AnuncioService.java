@@ -20,12 +20,16 @@ public class  AnuncioService {
     public void save (Anunciar a){
         repository.save(a);
     }
-    public Optional<Anunciar> findById(Integer id){
+    public Optional<Anunciar> findById(String id){
         return repository.findById(id);
     }
 
     public List<Anunciar> findAll(){
         return repository.findAll();
+    }
+    
+    public void delete(String id){
+        repository.deleteById(id);
     }
 
 }

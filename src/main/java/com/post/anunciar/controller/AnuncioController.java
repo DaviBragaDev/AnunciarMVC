@@ -23,13 +23,13 @@ public class AnuncioController {
     @GetMapping({"/", "/index", "/index.html"})
     public String getIndex(Model model){
         List<Anunciar> AnunciarList = service.findAll();
-        model.addAttribute("AnunciarList", AnunciarList);
+        model.addAttribute("anunciarList", AnunciarList);
         return "index.html";
     }
     @GetMapping("/cadastroProduto")
     public String getCadastrarPage(Model model){
         Anunciar a = new Anunciar();
-        model.addAttribute("postagem", a);
+        model.addAttribute("anunciar", a);
         return "cadastroProduto";
     }
     @PostMapping("/doSalvar")
@@ -38,16 +38,26 @@ public class AnuncioController {
         return "redirect:/index";
     }
     @GetMapping("/editarPage/{id}")
-    public String getEditarPage(@PathVariable(name = "id") Integer id, Model model){
+    public String getEditarPage(@PathVariable(name = "id") String id, Model model){
         Optional<Anunciar> A = service.findById(id);
         if (A.isPresent()){
-            model.addAttribute("Anunciar", A.get());
+            model.addAttribute("anunciar", A.get());
         }else{
             return "redirect:/index";
         }
 
         return "editarPage";
     }
+
+    @GetMapping("/deletarPage/{id}")
+    public String getDeletarPage(@PathVariable(name = "id") String id, Model model){
+    Optional<Anunciar> a = service.findById(id);
+    if (a.isPresent()) {
+        service.delete(id);
+    }
+    return "redirect:/index";
+    }
+    
 
 }
 
